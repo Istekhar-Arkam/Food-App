@@ -1,12 +1,10 @@
-
 import './App.css';
-
+import Header from './components/header';
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <>
-  <div>hellodcndskn</div>
-  <h1> c d </h1>
-  <h2>dv  j jdv </h2>
+  <Header/>
   </>
   );
 }
