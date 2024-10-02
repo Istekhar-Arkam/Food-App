@@ -67,12 +67,12 @@ const Header = () => {
                     <>
                       <tr>
                         <td>
-                          <NavLink to={}>
+                          {/* <NavLink to={}>
                             <img
                             src={e.imgdata}
                             alt="cart-image"
                             style={{ width: "5rem", height: "5rem" }}
-                          /></NavLink>
+                          /></NavLink> */}
                          
                         </td>
                         <td>
