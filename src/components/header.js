@@ -5,9 +5,13 @@ import Badge from "@mui/material/Badge";
 import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
 import Menu from "@mui/material/Menu";
-
+import { useSelector } from "react-redux";
+import { Table } from "@mui/material";
 
 const Header = () => {
+  const getData = useSelector((state) => state.cartreducer.carts);
+  console.log(getData);
+
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -27,7 +31,7 @@ const Header = () => {
             Home
           </NavLink>
         </Nav>
-        <Badge badgeContent={4} color="primary">
+        <Badge badgeContent={getData.length} color="primary">
           <i
             className="fa-solid fa-cart-shopping text-light"
             style={{ fontSize: 25, cursor: "pointer" }}
@@ -48,29 +52,92 @@ const Header = () => {
           "aria-labelledby": "basic-button",
         }}
       >
-        <div
-          className="card_details d-flex justify-content-center align-item-center"
-          style={{ width: "15rem", padding: 10, position: "relative" }}
-        >
-          <i
-            className="fas fa-close smallclose"
-            onClick={handleClose}
-            style={{
-              position: "absolute",
-              top: 2,
-              right: 20,
-              fontsize: 23,
-              cursor: "pointer",
-            }}
-          ></i>
-          <p style={{ fontsize: 22, marginTop: "20px" }}>Your carts is empty</p>
-          <img
-            src="cart.gif"
-            alt="cart-logo"
-            className="emptycart_img"
-            style={{ width: "5rem", padding: 10 }}
-          />
-        </div>
+        {getData.length ? (
+          <div className="card_details" style={{ width: "24rem", padding: 10 }}>
+            <Table>
+              <thead>
+                <tr>
+                  <th>Photo</th>
+                  <th>Restaurant Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                {getData.map((e) => {
+                  return (
+                    <>
+                      <tr>
+                        <td>
+                          <NavLink to={}>
+                            <img
+                            src={e.imgdata}
+                            alt="cart-image"
+                            style={{ width: "5rem", height: "5rem" }}
+                          /></NavLink>
+                         
+                        </td>
+                        <td>
+                          <p>{e.rname}</p>
+                          <p>Price : ₹{e.price}</p>
+                          <p>Quantity :{e.qnty}</p>
+                          <hr />
+                          <p
+                            style={{
+                              color: "red",
+                              fontSize: 20,
+                              cursor: "pointer",
+                            }}
+                          >
+                            <i className="fas fa-trash smalltrash"></i>
+                          </p>
+                        </td>
+
+                        <td
+                          className="mt-5"
+                          style={{
+                            color: "red",
+                            fontSize: 20,
+                            cursor: "pointer",
+                          }}
+                        >
+                          <i className="fas fa-trash largetrash"></i>
+                        </td>
+                      </tr>
+                    </>
+                  );
+                })}
+                <p className="text-center">Total : ₹300</p>
+              
+              </tbody>
+            </Table>
+           
+          </div>
+        ) : (
+          <div
+            className="card_details d-flex justify-content-center align-item-center"
+            style={{ width: "15rem", padding: 10, position: "relative" }}
+          >
+            <i
+              className="fas fa-close smallclose"
+              onClick={handleClose}
+              style={{
+                position: "absolute",
+                top: 2,
+                right: 20,
+                fontsize: 23,
+                cursor: "pointer",
+              }}
+            ></i>
+            <p style={{ fontsize: 22, marginTop: "20px" }}>
+              Your carts is empty
+            </p>
+            <img
+              src="cart.gif"
+              alt="cart-logo"
+              className="emptycart_img"
+              style={{ width: "5rem", padding: 10 }}
+            />
+          </div>
+        )}
       </Menu>
     </Navbar>
   );
