@@ -5,12 +5,16 @@ import Badge from "@mui/material/Badge";
 import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
 import Menu from "@mui/material/Menu";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Table } from "@mui/material";
+// import { DLT } from "../redux/action/action";
 
 const Header = () => {
+
   const getData = useSelector((state) => state.cartreducer.carts);
   console.log(getData);
+
+  // const dispatch=useDispatch()
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -67,7 +71,7 @@ const Header = () => {
                     <>
                       <tr>
                         <td>
-                          <NavLink to={`/cart/${e.id}`}>
+                          <NavLink to={`/cart/${e.id}`} onClick={handleClose}>
                             <img
                               src={e.imgdata}
                               alt="cart-image"
