@@ -67,13 +67,13 @@ const Header = () => {
                     <>
                       <tr>
                         <td>
-                          {/* <NavLink to={}>
+                          <NavLink to={`/cart/${e.id}`}>
                             <img
-                            src={e.imgdata}
-                            alt="cart-image"
-                            style={{ width: "5rem", height: "5rem" }}
-                          /></NavLink> */}
-                         
+                              src={e.imgdata}
+                              alt="cart-image"
+                              style={{ width: "5rem", height: "5rem" }}
+                            />
+                          </NavLink>
                         </td>
                         <td>
                           <p>{e.rname}</p>
@@ -90,7 +90,6 @@ const Header = () => {
                             <i className="fas fa-trash smalltrash"></i>
                           </p>
                         </td>
-
                         <td
                           className="mt-5"
                           style={{
@@ -106,10 +105,8 @@ const Header = () => {
                   );
                 })}
                 <p className="text-center">Total : ₹300</p>
-              
               </tbody>
             </Table>
-           
           </div>
         ) : (
           <div
