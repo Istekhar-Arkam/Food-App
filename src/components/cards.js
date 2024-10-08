@@ -5,6 +5,7 @@ import cardsData from "./cardsData";
 import "./style.css";
 import { useDispatch } from "react-redux";
 import { ADD } from "../redux/action/action";
+import Footer from "./footer";
 
 const Cards = () => {
   const [data, setData] = useState(cardsData);
@@ -52,6 +53,7 @@ const Cards = () => {
           );
         })}
       </div>
+      <Footer/>
     </div>
   );
 };

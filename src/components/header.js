@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Table } from "@mui/material";
 import { DLT } from "../redux/action/action";
 
+
 const Header = () => {
   const [price, setPrice] = useState(0);
 
@@ -162,6 +163,7 @@ const Header = () => {
         )}
       </Menu>
     </Navbar>
+    
   );
 };
 
