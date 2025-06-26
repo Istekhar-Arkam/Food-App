@@ -17,7 +17,7 @@ export const cartreducer = (state = INIT_STATE, action) => {
           carts: [...state.carts, temp],
         };
       }
-
+break;
     case "RMV_CART":
       const data = state.carts.filter((el) => el.id !== action.payload);
       return {
@@ -44,7 +44,7 @@ export const cartreducer = (state = INIT_STATE, action) => {
           carts: data,
         };
       }
-
+break;
     default:
       return state;
   }

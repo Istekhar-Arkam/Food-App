@@ -48,13 +48,22 @@ const Header = () => {
     <Navbar bg="dark" data-bs-theme="dark" style={{ height: "60px" }}>
       <Container>
         <NavLink to="/" className="text-decoration-none text-light mx-3">
-          Add to Cart
+         Home
         </NavLink>
-        <Nav className="me-auto">
+        <Nav className="me-auto gap-3">
           <NavLink to="/" className="text-decoration-none text-light">
-            Home
+            Offer
+          </NavLink>
+          <NavLink to="/" className="text-decoration-none text-light">
+           Help
+          </NavLink>
+           <NavLink to="/" className="text-decoration-none text-light">
+          Search
           </NavLink>
         </Nav>
+        
+          
+        
         <Badge badgeContent={getData.length} color="primary">
           <i
             className="fa-solid fa-cart-shopping text-light"

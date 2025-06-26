@@ -19,7 +19,7 @@ const CardsDetails = () => {
 
   const compare = () => {
     let compareData = getData.filter((e) => {
-      return e.id == id;
+      return e.id === id;
     });
     setData(compareData);
   };
@@ -40,7 +40,7 @@ const CardsDetails = () => {
 
   useEffect(() => {
     compare();
-  }, [id]);
+  }, [id,compare]);
 
   return (
     <>
